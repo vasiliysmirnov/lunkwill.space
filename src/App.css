@@ -1,0 +1,32 @@
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+h1{
+  text-align: center;
+}
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.links a{
+  max-width: 100px;
+  margin: 0 20px 0 0;
+}
+.links a:last-child{
+  margin: 0;
+}
+.links a img{
+  max-width: 100%;
+}
