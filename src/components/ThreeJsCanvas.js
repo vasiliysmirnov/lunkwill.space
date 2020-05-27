@@ -3,8 +3,9 @@ import './style.css';
 import * as THREE from "three";
 
 class ThreeJsCanvas extends Component{
+    
+
     componentDidMount() {
-        // === THREE.JS CODE START ===
         var scene = new THREE.Scene();
         scene.background = new THREE.Color( '#ffffff' );
 
@@ -23,22 +24,28 @@ class ThreeJsCanvas extends Component{
 
         camera.position.z = 5;
 
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+
         var animate = function () {
             requestAnimationFrame( animate );
 
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
 
+            window.addEventListener( 'resize', onWindowResize(), false );
+
             renderer.render( scene, camera );
         };
 
         animate();
-        // === THREE.JS EXAMPLE CODE END ===
     }
     render(){
         return(
-            <div className="canvas" id="canvas">
-            </div>
+            <div className="canvas" id="canvas"></div>
         );
     }
 }
